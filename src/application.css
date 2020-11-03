@@ -5,6 +5,26 @@ h2, h3, h4, h5, h6, p, button {
   font-family: 'Quicksand', sans-serif;
 }
 
+nav a {
+  color: #fff;
+  padding: 8px;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #59C1FF;
+}
+
+nav {
+  background-color: #0077be;
+}
+
+nav .divider {
+  color: #fff;
+  font-size: 24px;
+  line-height: 26px;
+  margin-top: -6px;
+}
 
 .dark {
   color: rgba(55, 55, 55, 1) !important;
@@ -23,10 +43,10 @@ h2, h3, h4, h5, h6, p, button {
 .first-card .card:hover {
   cursor: pointer;
 }
+
 .first-card .card .basic {
   margin-bottom: -18px;
 }
-
 
 .card input, .card select {
   max-width: 100px;

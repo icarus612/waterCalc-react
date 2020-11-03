@@ -7,6 +7,7 @@ const CommercialRates = (props) => {
 	const [meterSize, setmeterSize] = React.useState(1);
 	const [usage, setUsage] = React.useState(0);
     const [subtotal, setSubtotal] = React.useState(0);
+    const [irrigation, setIrrigation] = React.useState(0);
     const [sewer, setSewer] = React.useState(false);
     const meter = {
         "0.75": [1.29, 8.7],
@@ -21,12 +22,22 @@ const CommercialRates = (props) => {
         "12": [341.7, 2306]
     };
 
-	const setPrice = (u, l, s) => {
-        const newSewer = s ? 8.01 : 2.29;
+    const handleIrrigation = (e) => {
+        let x = 0;
+		for (let i = 0; i < e; i++) {
+			x += i < 16 ? 5.04 : 9.55;
+		}
+        return x.toFixed(2);
+    }
+    
+	const setPrice = (u, l, i, s) => {
+        const newSewer = s ? 8.01 : 2.92;
+        const h = handleIrrigation(i);
+        setIrrigation(i);
         setSewer(s);
         setUsage(u);
         setmeterSize(l);
-        setSubtotal(((Number(u) * newSewer) + (s ? meter[l][0] +meter[l][1] : meter[l][0]) + 8.44).toFixed(2));
+        setSubtotal(((Number(u) * newSewer) + (s ? meter[l][0] +meter[l][1] : meter[l][0]) + Number(h) + 8.44).toFixed(2));
 	}
 
 	return (
@@ -36,14 +47,15 @@ const CommercialRates = (props) => {
                     Commercial Rates
                 </h3>
                 <div className="col-12 d-flex flex-column justify-content-start align-items-start">
-                    <Input label="Sewer?" type="checkbox" className="pl-3" value={sewer} onChange={()=> setPrice(usage, meterSize, !sewer)} />
+                    <Input label="Sewer?" type="checkbox" className="pl-3" value={sewer} onChange={()=> setPrice(usage, meterSize, irrigation, !sewer)} />
                     <div  className="col-6">
-                        <Button type="select" value={meterSize} options={[0.75, 1, 1.5, 2, 3, 4, 6, 8, 10, 12]} onChange={(e)=> setPrice(usage, e, sewer)} /> <span className="pl-2">Meter Size</span>
+                        <Button type="select" className="select" value={meterSize} options={[0.75, 1, 1.5, 2, 3, 4, 6, 8, 10, 12]} onChange={(e)=> setPrice(usage, e, irrigation, sewer)} /> <span className="pl-2">Meter Size</span>
                     </div>
-                    <Input label="Water Usage" type="number" className="col-6" placeholder={0} min={0} max={10000} onChange={(e)=> setPrice(e.target.value, meterSize, sewer)} />
+                    <Input label="Water Usage" type="number" className="col-6" placeholder={0} min={0} max={10000} onChange={(e)=> setPrice(e.target.value, meterSize, irrigation, sewer)} />
+                    <Input label="Irrigation" type="number" className="col-6" placeholder={0} min={0} max={10000} onChange={(e)=> setPrice(usage, meterSize, e.target.value, sewer)} />
                 </div>
             </div>
-            <PriceBox comSewer={usage > 0 && sewer} meter={usage > 0 && meter[meterSize]} subtotal={usage > 0 ? subtotal : 0} />
+            <PriceBox sewerFee={usage > 0 && sewer} waterFee={usage > 0} meter={meter[meterSize]} irrigationUsage={irrigation > 0 && handleIrrigation(Number(irrigation))} waterUsage={usage > 0 && (usage * 2.92).toFixed(2)} sewerUsage={(sewer && usage > 0) &&  (usage * 5.19).toFixed(2)} subtotal={usage > 0 ? subtotal : 0} />
 		</React.Fragment>
 	)
 }
