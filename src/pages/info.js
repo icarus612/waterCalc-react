@@ -14,6 +14,27 @@ const Home = () => {
 					<h1>Water Utility Calculator App</h1>
 					<h4>A basic breakdown of how your bill is calculated. For more information visit <a target="_blank" href="https://charlottenc.gov/Water/RatesBilling/Pages/CLTWRates.aspx">Charlotte Water</a>.</h4>				
 				</div>
+				<div className="flex-wrap flex-row d-flex justify-content-around align-items-stretch p-3">
+					<h3 className="col-12 col-md-10 text-center">
+						Universal Rates &amp; Fees
+					</h3>
+					<div>
+						<h4>Irrigation Meter Rates</h4>
+						<ul>
+							<li>Tier 1: (1-16 Ccf): $5.04</li>
+							<li>Tier 2: (17+ CCf): $9.55</li>
+						</ul>
+					</div>
+					<div>
+
+						<h4>Fixed Fees</h4>
+						<ul>
+							<li>Water: $4.22/month</li>
+							<li>Sewer: $4.22/month</li>
+						</ul>
+					</div>
+				</div>
+
 				<div>
 					<h3>
 						Residential Rates &amp; Fees
@@ -25,16 +46,9 @@ const Home = () => {
 						<li>Tier 3 (9-16 Ccf): $5.04/Ccf</li>
 						<li>Tier 4 (Over 16 Ccf): $9.55/Ccf</li>
 					</ul>
-
 					<h4>Sewer Usage:</h4>
 					<ul>
 						<li>$5.19 Per Ccf of Water Used (up to 16 Ccf)</li>
-					</ul>
-
-					<h4>Fixed Fees</h4>
-					<ul>
-						<li>Water: $4.22/month</li>
-						<li>Sewer: $4.22/month</li>
 					</ul>
 
 					<h4>Availability Fees</h4>
@@ -44,13 +58,8 @@ const Home = () => {
 						<li>Sewer 5/8" Connection Size: 8.70/month</li>
 						<li>Sewer 1" Connection Size: $21.76/month</li>
 					</ul>
-
-					<h4>Irrigation Meter Rates</h4>
-					<ul>
-						<li>Tier 1: (1-16 Ccf): $5.04</li>
-						<li>Tier 2: (17+ CCf): $9.55</li>
-					</ul>
 				</div>
+
 				<div>
 					<h3>
 						Commercial Rates &amp; Fees
@@ -60,13 +69,6 @@ const Home = () => {
 						<li>Water Charge per Ccf: $2.92</li>
 						<li>Sewer Charge per Ccf: $5.19</li>
 					</ul>
-
-					<h4>Fixed Fees</h4>
-					<ul>
-						<li>Water: $4.22/month</li>
-						<li>Sewer: $4.22/month</li>
-					</ul>
-
 					<h4>Water Availability Fees</h4>
 					<ul>
 						<li>Water 3/4" and 5/8" Connection Size: $1.29/month</li>
@@ -94,15 +96,7 @@ const Home = () => {
 						<li>Sewer 10" Connection Size: $1,828.00/month</li>
 						<li>Sewer 12" Connection Size: $2,306.00/month</li>
 					</ul>
-
-					
-					<h4>Irrigation Meter Rates</h4>
-					<ul>
-						<li>Tier 1: (1-16 Ccf): $5.04</li>
-						<li>Tier 2: (17+ CCf): $9.55</li>
-					</ul>
 				</div>
-				<iframe width={width > 600 ? "560" : "360"} height={width > 600 ? "315" : "210"} src="https://www.youtube.com/embed/mnEAcCMa9ZM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 			</div>
 		</div>
 	);
