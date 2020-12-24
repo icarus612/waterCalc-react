@@ -15,7 +15,7 @@ let NavBar = (props)=> {
             <div className="divider">|</div>
             <a href="/">Home</a>
             <div className="divider">|</div>
-            <a href="/bill-generator">Bill Generator</a>
+            <a href="/info">Pricing Info</a>
         </nav>
        
     )
