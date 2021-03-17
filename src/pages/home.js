@@ -11,10 +11,10 @@ const Rates = (props) => {
 	const [position, setPosition] = useState("F");
 
 	const cards = {
-		"F": <FirstCard onChange={(e) => setPosition(e)} />,
-		"R": <ResidentialRates />,
-		"C": <CommercialRates />,
-	};
+		"F": <FirstCard onChange={(e)=> setPosition(e)} />,
+		"C": <CommercialRates onChange={(e)=> setPosition(e)} />,
+		"R": <ResidentialRates onChange={(e)=> setPosition(e)} />
+	}
 
 	return (
 		<div className="container flex-wrap flex-row d-flex justify-content-center align-items-center vh-100">
